@@ -57,7 +57,7 @@ Theoretical Peak: 192 GB/s
 **Key findings:**
 - `torch.compile` hits **93.6%** of theoretical peak bandwidth - it wins at large batch sizes
 - Triton kernel hits **87.3%** - still excellent, and wins at small batch sizes (M < 8192)
-- PyTorch Native (`torch.nn.functional.rms_norm`) is slow because it's not fused - multiple kernel launches
+- PyTorch Native (torch.nn.functional.rms_norm) is slow in v2.5.1 because it's not fused - multiple kernel launches. A native fused CUDA kernel is coming in PyTorch 2.10+.
 
 ![benchmark](outputs/benchmark.png)
 
